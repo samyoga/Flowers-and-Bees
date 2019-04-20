@@ -25,7 +25,7 @@ router.get('/product_details', function(req, res, next) {
 });
 
 router.get('/products.ejs', function(req, res, next) {
-  res.render('producs');
+  res.render('products');
 });
 
 router.get('/register.ejs', function(req, res, next) {

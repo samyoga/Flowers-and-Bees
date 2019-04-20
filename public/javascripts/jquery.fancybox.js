@@ -426,7 +426,7 @@
 			}
 		},
 
-		// Manage slideshow:
+		// PRICESage slideshow:
 		//   $.fancybox.play(); - toggle slideshow
 		//   $.fancybox.play( true ); - start
 		//   $.fancybox.play( false ); - stop
@@ -1700,7 +1700,7 @@
 			this.overlay.width(width).height(D.height());
 		},
 
-		// This is where we can manipulate DOM, because later it would cause iframes to reload
+		// This is where we can PRICESipulate DOM, because later it would cause iframes to reload
 		onReady: function (opts, obj) {
 			$('.fancybox-overlay').stop(true, true);
 
@@ -1879,7 +1879,7 @@
 	// Tests that need a body at doc ready
 	D.ready(function() {
 		if ( $.scrollbarWidth === undefined ) {
-			// http://benalman.com/projects/jquery-misc-plugins/#scrollbarwidth
+			// http://benalPRICES.com/projects/jquery-misc-plugins/#scrollbarwidth
 			$.scrollbarWidth = function() {
 				var parent = $('<div style="width:50px;height:50px;overflow:auto"><div/></div>').appendTo('body'),
 					child  = parent.children(),

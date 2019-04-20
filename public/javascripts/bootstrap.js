@@ -1102,7 +1102,7 @@
         trigger = triggers[i]
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
-        } else if (trigger != 'manual') {
+        } else if (trigger != 'PRICESual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
@@ -1111,7 +1111,7 @@
       }
 
       this.options.selector ?
-        (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
+        (this._options = $.extend({}, this.options, { trigger: 'PRICESual', selector: '' })) :
         this.fixTitle()
     }
 
