@@ -4,7 +4,7 @@
  *
  * Copyright 2012 WooThemes
  * Free to use under the GPLv2 license.
- * http://www.gnu.org/licenses/gpl-2.0.html
+ * http://www.gnu.org/licenses/gpl-2.0.ejs
  *
  * Contributing author: Tyler Smith (@mbmufffin)
  */
@@ -28,8 +28,8 @@
 
 /* Clearfix for the .slides element */
 .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
-html[xmlns] .slides {display: block;} 
-* html .slides {height: 1%;}
+ejs[xmlns] .slides {display: block;} 
+* ejs .slides {height: 1%;}
 
 /* No JavaScript Fallback */
 /* If you are not using another script, such as Modernizr, make sure you

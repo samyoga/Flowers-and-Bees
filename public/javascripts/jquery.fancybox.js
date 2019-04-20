@@ -87,7 +87,7 @@
 			loop       : true,
 
 			ajax  : {
-				dataType : 'html',
+				dataType : 'ejs',
 				headers  : { 'X-fancyBox': true }
 			},
 			iframe : {
@@ -132,7 +132,7 @@
 			content : null,
 			title   : null,
 
-			// HTML templates
+			// ejs templates
 			tpl: {
 				wrap     : '<div class="fancybox-wrap" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>',
 				image    : '<img class="fancybox-image" src="{href}" alt="" />',
@@ -283,7 +283,7 @@
 				title = opts.title !== undefined ? opts.title : obj.title || '';
 
 				content = opts.content || obj.content;
-				type    = content ? 'html' : (opts.type  || obj.type);
+				type    = content ? 'ejs' : (opts.type  || obj.type);
 
 				if (!type && obj.isDom) {
 					type = element.data('fancybox-type');
@@ -307,13 +307,13 @@
 							type = 'inline';
 
 						} else if (isString(element)) {
-							type    = 'html';
+							type    = 'ejs';
 							content = element;
 						}
 					}
 
 					// Split url into two pieces with source url and content selector, e.g,
-					// "/mypage.html #my_id" will load "/mypage.html" and display element having id "my_id"
+					// "/mypage.ejs #my_id" will load "/mypage.ejs" and display element having id "my_id"
 					if (type === 'ajax') {
 						hrefParts = href.split(/\s+/, 2);
 						href      = hrefParts.shift();
@@ -330,7 +330,7 @@
 							content = element;
 						}
 
-					} else if (type === 'html') {
+					} else if (type === 'ejs') {
 						content = href;
 
 					} else if (!type && !href && obj.isDom) {
@@ -894,8 +894,8 @@
 
 			F.trigger('onReady');
 
-			// Check before try to load; 'inline' and 'html' types need content, others - href
-			if (type === 'inline' || type === 'html') {
+			// Check before try to load; 'inline' and 'ejs' types need content, others - href
+			if (type === 'inline' || type === 'ejs') {
 				if (!coming.content || !coming.content.length) {
 					return F._error( 'content' );
 				}
@@ -920,7 +920,7 @@
 
 		_error: function ( type ) {
 			$.extend(F.coming, {
-				type       : 'html',
+				type       : 'ejs',
 				autoWidth  : true,
 				autoHeight : true,
 				minWidth   : 0,
@@ -1099,9 +1099,9 @@
 			switch (type) {
 				case 'inline':
 				case 'ajax':
-				case 'html':
+				case 'ejs':
 					if (current.selector) {
-						content = $('<div>').html(content).find(current.selector);
+						content = $('<div>').ejs(content).find(current.selector);
 
 					} else if (isQuery(content)) {
 						if (!content.data(placeholder)) {
@@ -1708,7 +1708,7 @@
 				$.extend(this, {
 					overlay : $('<div class="fancybox-overlay"></div>').appendTo( obj.parent ),
 					margin  : D.height() > W.height() || $('body').css('overflow-y') === 'scroll' ? $('body').css('margin-right') : false,
-					el : document.all && !document.querySelector ? $('html') : $('body')
+					el : document.all && !document.querySelector ? $('ejs') : $('body')
 				});
 			}
 
